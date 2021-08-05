@@ -3,17 +3,20 @@ import Formulario from './components/Formularios';
 import Header from './components/Header';
 
 import CategoriaProviders from './contexts/CategoriasContext';
+import RecetasProvider from './contexts/Recetas.context';
 
 function App() {
   return (
     <CategoriaProviders>
-      <Header />
+      <RecetasProvider>
+        <Header />
 
-      <div className="container mt-5">
-        <div className="row">
-          <Formulario />
+        <div className="container mt-5">
+          <div className="row">
+            <Formulario />
+          </div>
         </div>
-      </div>
+        </RecetasProvider>
     </CategoriaProviders>
   );
 }

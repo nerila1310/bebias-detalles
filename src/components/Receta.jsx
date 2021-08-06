@@ -42,6 +42,20 @@ const Receta = ({receta}) => {
     //extraer los valores del context
     const {inforeceta, guardarIdReceta, guardarReceta} = useContext(ModalContext);
 
+
+    // muestra y formatea los ingredientes
+    const mostrarIngredientes = inforeceta => {
+        let ingredientes = [];
+        for (let i = 1; i < 16; i++) {
+            if(inforeceta[`strIngredient${i}`]){
+                ingredientes.push(
+                    <li>{inforeceta[`strIngredient${i}`]} : {inforeceta[`strMeasure${i}`]}</li>
+                )
+            }
+        }
+        return ingredientes;
+    }
+
     return (  
         <div className="col-md-4 mb-3">
             <div className="card">
@@ -72,6 +86,10 @@ const Receta = ({receta}) => {
                             <h3 className="mt-4">Instrucciones</h3>
                             <p> {inforeceta.strInstructions} </p>
                             <img className="img-fluid my-4" src={inforeceta.strDrinkThumb} alt={inforeceta.strDrink} />
+                            <h3>Ingedientes y Cantidades</h3>
+                            <ul>
+                                {mostrarIngredientes(inforeceta)}
+                            </ul>
                         </div>
                     </Modal>
                 </div>

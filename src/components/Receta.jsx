@@ -49,7 +49,12 @@ const Receta = ({receta}) => {
         for (let i = 1; i < 16; i++) {
             if(inforeceta[`strIngredient${i}`]){
                 ingredientes.push(
-                    <li>{inforeceta[`strIngredient${i}`]} : {inforeceta[`strMeasure${i}`]}</li>
+                    <li
+                    key={
+                        inforeceta[`strIngredient${i}`] +
+                        inforeceta[`strMeasure${i}`]
+                    }
+                    >{inforeceta[`strIngredient${i}`]} : {inforeceta[`strMeasure${i}`]}</li>
                 )
             }
         }

@@ -20,6 +20,7 @@ function App() {
             </div>
             <ListaRecetas />
           </div>
+          
         </ModalProvider>
       </RecetasProvider>
     </CategoriaProviders>
